@@ -1,72 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Task Manager</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- Main Container -->
-    <div class="container">
+<script>
 
-        <!-- Header -->
-        <header>
-            <h1>Task Manager</h1>
-            <p>Organize your work and track your progress</p>
-        </header>
+    const token =
+        localStorage.getItem("token");
 
-        <!-- Add Task Section -->
-        <section class="add-task">
-            <h2>Add New Task</h2>
 
-            <div class="task-input">
-                <input
-                    type="text"
-                    id="taskInput"
-                    placeholder="Enter your task..."
+    if (!token) {
+
+        window.location.href =
+            "auth.html";
+
+    }
+
+</script>
+
+
+<div class="container">
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <h1>
+            Task Manager
+        </h1>
+
+
+        <p id="welcomeMessage">
+            Welcome 👋
+        </p>
+
+
+        <button id="logoutBtn">
+            Logout
+        </button>
+
+
+        <p>
+            Organize your work and track your progress
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         ADD TASK
+    ========================== -->
+
+    <section class="add-task">
+
+        <h2>
+            Add New Task
+        </h2>
+
+
+        <div class="task-input">
+
+            <!-- TASK -->
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter your task..."
+            >
+
+
+            <!-- PRIORITY -->
+
+            <select id="priorityInput">
+
+                <option value="Low">
+                    Low Priority
+                </option>
+
+                <option
+                    value="Medium"
+                    selected
                 >
+                    Medium Priority
+                </option>
 
-                <button id="addTaskBtn">Add Task</button>
-            </div>
-        </section>
+                <option value="High">
+                    High Priority
+                </option>
 
-        <!-- Task Statistics -->
-        <section class="task-stats">
-            <div class="stat-card">
-                <h3 id="totalTasks">0</h3>
-                <p>Total Tasks</p>
-            </div>
+            </select>
 
-            <div class="stat-card">
-                <h3 id="pendingTasks">0</h3>
-                <p>Pending</p>
-            </div>
 
-            <div class="stat-card">
-                <h3 id="completedTasks">0</h3>
-                <p>Completed</p>
-            </div>
-        </section>
+            <!-- CATEGORY -->
 
-        <!-- Tasks List -->
-        <section class="tasks-section">
-            <h2>My Tasks</h2>
+            <select id="categoryInput">
 
-            <div id="taskList">
+                <option value="General">
+                    General
+                </option>
 
-                <!-- Tasks will appear here using JavaScript -->
+                <option value="Work">
+                    Work
+                </option>
 
-            </div>
-        </section>
+                <option value="Study">
+                    Study
+                </option>
 
-    </div>
+                <option value="Personal">
+                    Personal
+                </option>
 
-    <script src="script.js"></script>
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+
+            <!-- DUE DATE -->
+
+            <input
+                type="date"
+                id="dueDateInput"
+            >
+
+
+            <!-- STATUS -->
+
+            <select id="statusInput">
+
+                <option value="Pending">
+                    Pending
+                </option>
+
+                <option value="In Progress">
+                    In Progress
+                </option>
+
+                <option value="Completed">
+                    Completed
+                </option>
+
+            </select>
+
+
+            <!-- ADD BUTTON -->
+
+            <button id="addTaskBtn">
+                Add Task
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TASK STATISTICS
+    ========================== -->
+
+    <section class="task-stats">
+
+
+        <div class="stat-card">
+
+            <h3 id="totalTasks">
+                0
+            </h3>
+
+            <p>
+                Total Tasks
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3 id="pendingTasks">
+                0
+            </h3>
+
+            <p>
+                Pending
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3 id="completedTasks">
+                0
+            </h3>
+
+            <p>
+                Completed
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         TASKS SECTION
+    ========================== -->
+
+    <section class="tasks-section">
+
+
+        <h2>
+            My Tasks
+        </h2>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-container">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔎 Search tasks..."
+            >
+
+        </div>
+
+
+        <!-- TASK LIST -->
+
+        <div id="taskList">
+
+            <!-- Tasks appear here -->
+
+        </div>
+
+
+    </section>
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
 
 </body>
+
 </html>
