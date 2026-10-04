@@ -36,7 +36,7 @@ const searchInput =
 
 
 const API_URL =
-    "http://localhost:5000/api/tasks";
+    "https://task-manager-sbat.onrender.com/api/tasks";
 
 
 const authToken =
