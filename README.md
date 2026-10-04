@@ -67,3 +67,8 @@ task-manager
 │
 ├── .gitignore
 └── README.md
+## Live Application
+
+🌐 **Frontend:** https://task-manager-frontend-jszb.onrender.com
+
+⚙️ **Backend:** https://task-manager-sbat.onrender.com
